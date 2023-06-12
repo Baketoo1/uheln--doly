@@ -75,25 +75,27 @@ body{
 }
 
 .blob:nth-child(1){
-    top: -50;
-    left: -50;
+    top: -5vh;
+    left: -5vw;
 }
 
 .blob:nth-child(2){
-    top: 30;
-    left: 1300;
+    top: 1vh;
+    left: 70vw;
     animation: blob-anim-shadow2 15s infinite;
 }
 
 .blob:nth-child(3){
-    top: 200;
-    left: 90%;
+    top: 10vh;
+    left: 85vw;
+    transform: scale(0.5);
 }
 
 .blob:nth-child(4){
-    top: 210;
-    left: -100;
+    top: 10vh;
+    left: -10vw;
     animation: blob-anim-shadow2 15s infinite;
+    transform: scale(1.5);
 }
 
 .blob:nth-child(2):before{
@@ -442,6 +444,7 @@ section{
     flex-direction: column;
     padding: 5rem 15rem;
     gap: 1rem;
+    filter: drop-shadow(0 0 50px #000);
 }
 
 section h1,
@@ -491,12 +494,12 @@ section ul li:hover h2{
     top: 0;
     left: 0;
     position: relative;
+    filter: drop-shadow(0 0 50px #000);
 }
 
 .title:hover{
     top: -2px;
     left: 0;
-    filter: drop-shadow(0 0 50px #000);
 }
 
 @keyframes title1{
