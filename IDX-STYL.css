@@ -25,6 +25,7 @@ html{
 
 body{
     background: #111;
+    overflow-x: hidden;
 }
 
 /* Body */
