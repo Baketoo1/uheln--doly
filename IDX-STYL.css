@@ -334,10 +334,32 @@ main h1{
     color: white;
     font-size: 8rem;
     text-shadow: 0 0 10px #fff;
+    -webkit-animation: title1 2s ease-in-out;
+    -moz-animation: title1 2s ease-in-out;
     animation: title1 2s ease-in-out;
 }
 
-@keyframes title1{
+@-webkit-keyframes title1 {
+    from{
+        transform: translateX(60%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@-moz-keyframes title2 {
+    from{
+        transform: translateX(60%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes title1 {
     from{
         transform: translateX(60%);
         opacity: 0;
@@ -348,6 +370,8 @@ main h1{
 }
 
 .btn-main{
+    -webkit-animation: btn2 2s ease-in-out;
+    -moz-animation: btn2 2s ease-in-out;
     animation: btn2 2s ease-in-out;
 }
 
@@ -375,6 +399,26 @@ main h1{
 .btn-main a:active{
     top: 0;
     left: 0;
+}
+
+@-webkit-keyframes btn2 {
+    from{
+        transform: translateX(60%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@-moz-keyframes btn2 {
+    from{
+        transform: translateX(60%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+    }
 }
 
 @keyframes btn2{
@@ -448,6 +492,8 @@ section:nth-child(even){
     -webkit-text-fill-color: transparent;
     font-size: 2rem;
     text-transform: uppercase;
+    -webkit-animation: title2 3s ease-in-out infinite alternate;
+    -moz-animation: title2 3s ease-in-out infinite alternate;
     animation: title2 3s ease-in-out infinite alternate;
     filter: drop-shadow(0 0 15px #000);
 }
@@ -467,6 +513,24 @@ section:nth-child(6) .text h2
         -225deg, 
         var(--color5) 0%,
         var(--color6) 90%);
+}
+
+@-webkit-keyframes title2 {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@-moz-keyframes title2 {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 @keyframes title2 {
@@ -513,6 +577,8 @@ section:nth-child(6) .text h2
     top: -2px;
     left: 0;
     color: #fff;
+    -webkit-animation: btn1 3s linear infinite 0.1s;
+    -moz-animation: btn1 3s linear infinite 0.1s;
     animation: btn1 3s linear infinite 0.1s;
     transition: 0.2s;
     box-shadow: 0 0 10px #fff;
@@ -537,6 +603,42 @@ section:nth-child(6) .btn-article a:hover{
         var(--color6) 90%);
 }
 
+@-webkit-keyframes btn1{
+    0%{
+        background-position: 0% 0%;
+    }
+    25%{
+        background-position: 80% 0%;
+    }
+    50%{
+        background-position: 80% 80%;
+    }
+    75%{
+        background-position: 0% 80%;
+    }
+    100%{
+        background-position: 0% 0%;
+    }
+}
+
+@-moz-keyframes btn1{
+    0%{
+        background-position: 0% 0%;
+    }
+    25%{
+        background-position: 80% 0%;
+    }
+    50%{
+        background-position: 80% 80%;
+    }
+    75%{
+        background-position: 0% 80%;
+    }
+    100%{
+        background-position: 0% 0%;
+    }
+}
+
 @keyframes btn1{
     0%{
         background-position: 0% 0%;
@@ -553,7 +655,6 @@ section:nth-child(6) .btn-article a:hover{
     100%{
         background-position: 0% 0%;
     }
-
 }
 
 .shadow{
@@ -567,6 +668,8 @@ section:nth-child(6) .btn-article a:hover{
     top: 0;
     left: 0;
     filter: blur(10px);
+    -webkit-animation: shadow1 10s ease infinite;
+    -moz-animation: shadow1 10s ease infinite;
     animation: shadow1 10s ease infinite;
 }
 
@@ -582,6 +685,41 @@ section:nth-child(6) .shadow{
     background-image: radial-gradient( 
         var(--color5) 0%,
         var(--color6) 90%);
+}
+
+@-webkit-keyframes shadow1{
+    0%{
+        background-position: 0% 0%;
+    }
+    25%{
+        background-position: 100% 0%;
+    }
+    50%{
+        background-position: 100% 100%;
+    }
+    75%{
+        background-position: 0% 100%;
+    }
+    100%{
+        background-position: 0% 0%;
+    }
+}
+@-moz-keyframes shadow1{
+    0%{
+        background-position: 0% 0%;
+    }
+    25%{
+        background-position: 100% 0%;
+    }
+    50%{
+        background-position: 100% 100%;
+    }
+    75%{
+        background-position: 0% 100%;
+    }
+    100%{
+        background-position: 0% 0%;
+    }
 }
 
 @keyframes shadow1{

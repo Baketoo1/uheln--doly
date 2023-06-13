@@ -27,6 +27,7 @@ body{
 
 /* body */
 
+
 /* background */
 
 .background{
@@ -70,6 +71,8 @@ body{
     z-index: -1;
     border-radius: 52% 48% 56% 44% / 55% 48% 52% 45% ;
     transition: 5s;
+    -webkit-animation: blob-anim-shadow1 10s infinite;
+    -moz-animation: blob-anim-shadow1 10s infinite;
     animation: blob-anim-shadow1 10s infinite;
 }
 
@@ -81,7 +84,6 @@ body{
 .blob:nth-child(2){
     top: 1vh;
     left: 70vw;
-    animation: blob-anim-shadow2 15s infinite;
 }
 
 .blob:nth-child(3){
@@ -93,16 +95,62 @@ body{
 .blob:nth-child(4){
     top: 10vh;
     left: -10vw;
-    animation: blob-anim-shadow2 15s infinite;
     transform: scale(1.5);
 }
 
-.blob:nth-child(2):before{
+.blob:nth-child(2),
+.blob:nth-child(4),
+.blob:nth-child(2):before,
+.blob:nth-child(4):before{
+    -webkit-animation: blob-anim-shadow2 15s infinite;
+    -moz-animation: blob-anim-shadow2 15s infinite;
     animation: blob-anim-shadow2 15s infinite;
 }
 
-.blob:nth-child(4):before{
-    animation: blob-anim-shadow2 15s infinite;
+@-webkit-keyframes blob-anim-shadow1{
+    0%{
+        background-position: 0% 0%;
+        border-radius: 52% 48% 56% 44% / 55% 48% 52% 45% ;
+    }
+    20%{
+        background-position: 100% 0%;
+        border-radius: 48% 52% 56% 44% / 55% 36% 64% 45% ; 
+    }
+    50%{
+        background-position: 100% 100%;
+        border-radius: 65% 35% 28% 72% / 41% 56% 44% 59% ;
+    }
+    75%{
+        background-position: 0% 100%;
+        border-radius: 48% 52% 56% 44% / 55% 36% 64% 45% ; 
+    }
+    100%{
+        background-position: 0% 0%;
+        border-radius: 52% 48% 56% 44% / 55% 48% 52% 45% ;
+    }
+}
+
+@-moz-keyframes blob-anim-shadow1{
+    0%{
+        background-position: 0% 0%;
+        border-radius: 52% 48% 56% 44% / 55% 48% 52% 45% ;
+    }
+    20%{
+        background-position: 100% 0%;
+        border-radius: 48% 52% 56% 44% / 55% 36% 64% 45% ; 
+    }
+    50%{
+        background-position: 100% 100%;
+        border-radius: 65% 35% 28% 72% / 41% 56% 44% 59% ;
+    }
+    75%{
+        background-position: 0% 100%;
+        border-radius: 48% 52% 56% 44% / 55% 36% 64% 45% ; 
+    }
+    100%{
+        background-position: 0% 0%;
+        border-radius: 52% 48% 56% 44% / 55% 48% 52% 45% ;
+    }
 }
 
 @keyframes blob-anim-shadow1{
@@ -128,6 +176,53 @@ body{
     }
 }
 
+@-webkit-keyframes blob-anim-shadow2 {
+    0%{
+        background-position: 0% 0%;
+        border-radius: 61% 39% 76% 24% / 41% 60% 40% 59% ;
+    }
+    20%{
+        background-position: 0% 100%;
+        border-radius: 43% 57% 48% 52% / 66% 36% 64% 34% ; 
+    }
+    50%{
+        background-position: 100% 100%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63% ;
+    }
+    75%{
+        background-position: 100% 0%;
+        border-radius: 43% 57% 48% 52% / 66% 36% 64% 34% ; 
+    }
+    100%{
+        background-position: 0% 0%;
+        border-radius: 61% 39% 76% 24% / 41% 60% 40% 59% ;
+    }
+}
+
+@-moz-keyframes blob-anim-shadow2 {
+    0%{
+        background-position: 0% 0%;
+        border-radius: 61% 39% 76% 24% / 41% 60% 40% 59% ;
+    }
+    20%{
+        background-position: 0% 100%;
+        border-radius: 43% 57% 48% 52% / 66% 36% 64% 34% ; 
+    }
+    50%{
+        background-position: 100% 100%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63% ;
+    }
+    75%{
+        background-position: 100% 0%;
+        border-radius: 43% 57% 48% 52% / 66% 36% 64% 34% ; 
+    }
+    100%{
+        background-position: 0% 0%;
+        border-radius: 61% 39% 76% 24% / 41% 60% 40% 59% ;
+    }
+}
+
+
 @keyframes blob-anim-shadow2{
     0%{
         background-position: 0% 0%;
@@ -152,6 +247,7 @@ body{
 }
 
 /* background */
+
 
 /* nav */
 
@@ -256,15 +352,15 @@ nav{
 
 @-webkit-keyframes logo1 {
     0% {
-        background-position: 0% 0%;
+        background-position: 50% 0%;
         rotate: 180deg;
     }
     50% {
-        background-position: 400% 400%;
+        background-position: 50% 100%;
         rotate: -180deg;
     }
     100% {
-        background-position: 0% 0%;
+        background-position: 50% 0%;
         rotate: 180deg;
     }
 }
@@ -434,6 +530,7 @@ nav ul li:nth-child(3) a:active{
 
 
 /* section */
+
 section{
     color: #fff;
     height: auto;
@@ -441,7 +538,6 @@ section{
     flex-direction: column;
     padding: 5rem 15rem;
     gap: 1rem;
-    overflow: hidden;
     filter: drop-shadow(0 0 50px #000);
 }
 
@@ -457,10 +553,30 @@ section h2{
     -webkit-text-fill-color: transparent;
     font-size: 2.5rem;
     text-transform: uppercase;
+    -webkit-animation: title2 3s ease-in-out infinite alternate;
+    -moz-animation: title2 3s ease-in-out infinite alternate;
     animation: title2 3s ease-in-out infinite alternate;
     filter: drop-shadow(0 0 15px #000);
     position: relative;
     transition: 0.1s;
+}
+
+@-webkit-keyframes title2 {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@-moz-keyframes title2 {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
 
 @keyframes title2 {
@@ -473,7 +589,7 @@ section h2{
 }
 
 section h1{
-    font-size: 3.5rem;
+    font-size: 4rem;
 }
 
 section h2{
@@ -488,6 +604,8 @@ section ul li:hover h2{
 }
 
 .title{
+    -webkit-animation: title1 2s ease-in-out;
+    -moz-animation: title1 2s ease-in-out;
     animation: title1 2s ease-in-out;
     top: 0;
     left: 0;
@@ -498,6 +616,26 @@ section ul li:hover h2{
 .title:hover{
     top: -2px;
     left: 0;
+}
+
+@-webkit-keyframes title1 {
+    from{
+        transform: translate(-5%, 0);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0%, 0%);
+    }
+}
+
+@-moz-keyframes title1 {
+    from{
+        transform: translate(-5%, 0);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0%, 0%);
+    }
 }
 
 @keyframes title1{
@@ -513,7 +651,29 @@ section ul li:hover h2{
 section p{
     color: #fff;
     font-size: 1.5rem;
+    -webkit-animation: para1 1s ease-in-out;
+    -moz-animation: para1 1s ease-in-out;
     animation: para1 1s ease-in-out;
+}
+
+@-webkit-keyframes para1 {
+    from{
+        transform: translate(2%, 0);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0%, 0%);
+    }
+}
+
+@-moz-keyframes para1 {
+    from{
+        transform: translate(2%, 0);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0%, 0%);
+    }
 }
 
 @keyframes para1{
@@ -546,7 +706,29 @@ section ul{
     position: relative;
     top: 0;
     left: 0;
+    -webkit-animation: title3 1s ease-in-out;
+    -moz-animation: title3 1s ease-in-out;
     animation: title3 1s ease-in-out;
+}
+
+@-webkit-keyframes title3{
+    from{
+        transform: translate(3%, 0);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0%, 0%);
+    }
+}
+
+@-moz-keyframes title3{
+    from{
+        transform: translate(3%, 0);
+        opacity: 0;
+    }
+    to{
+        transform: translate(0%, 0%);
+    }
 }
 
 @keyframes title3{
