@@ -19,7 +19,6 @@
 
 html{
     font-family: 'Poppins', sans-serif;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
 }
 
@@ -448,18 +447,268 @@ section{
     justify-content: center;
     align-items: center;
     scroll-snap-align: center;
-    margin-left: 100px;
     position: relative;
+    gap: 4rem;
 }
 
-section:nth-child(even){
-    margin-left: -100px;
+.reveal{
+    position: relative;
+    transform: translateY(300px);
+    opacity: 0;
+    transition: all 1s ease;
+    transition-delay: 0.2s;
+}
+
+.reveal-anim{
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.blob-holder{
+    position: relative;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(
+        var(--color1) 0%,
+        var(--color2) 100.2%);
+    background-size: 200% 200%;
+    width: 40rem;
+    height: 40rem;
+    transition: all 0.1s linear;
+    border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    -webkit-animation: blob-holder1 15s linear infinite;
+    -moz-animation: blob-holder1 15s linear infinite;
+    animation: blob-holder1 15s linear infinite;
+    padding: 1rem;
+    order: 1;
+}
+
+.blob-holder::before{
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: radial-gradient(
+        var(--color1) 0%,
+        var(--color2) 100.2%);
+    background-size: 200% 200%;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease-in-out;
+    border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    -webkit-animation: blob-holder1 15s linear infinite;
+    -moz-animation: blob-holder1 15s linear infinite;
+    animation: blob-holder1 15s linear infinite;
+    filter: blur(15px);
+}
+
+@-webkit-keyframes blob-holder1{
+    0%{
+        background-position: 0% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+    25%{
+        background-position: 100% 0%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    50%{
+        background-position: 100% 100%;
+        border-radius: 39% 61% 63% 37% / 36% 65% 35% 64%;
+    }
+    75%{
+        background-position: 0% 100%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    100%{
+        background-position: 0% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+}
+
+@-moz-keyframes blob-holder1{
+    0%{
+        background-position: 0% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+    25%{
+        background-position: 100% 0%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    50%{
+        background-position: 100% 100%;
+        border-radius: 39% 61% 63% 37% / 36% 65% 35% 64%;
+    }
+    75%{
+        background-position: 0% 100%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    100%{
+        background-position: 0% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+}
+
+@keyframes blob-holder1{
+    0%{
+        background-position: 0% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+    25%{
+        background-position: 100% 0%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    50%{
+        background-position: 100% 100%;
+        border-radius: 39% 61% 63% 37% / 36% 65% 35% 64%;
+    }
+    75%{
+        background-position: 0% 100%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    100%{
+        background-position: 0% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+}
+
+section:nth-child(even) .blob-holder{
+    order: 2;
+}
+
+section:nth-child(2) .blob-holder,
+section:nth-child(5) .blob-holder,
+section:nth-child(2) .blob-holder::before,
+section:nth-child(5) .blob-holder::before{
+    background-image: linear-gradient(
+        var(--color3) 11.2%,
+        var(--color4) 91.7%);
+}
+
+section:nth-child(3) .blob-holder,
+section:nth-child(6) .blob-holder,
+section:nth-child(3) .blob-holder::before,
+section:nth-child(6) .blob-holder::before{
+    background-image: linear-gradient(
+        var(--color5) 0%,
+        var(--color6) 90%);
+}
+
+.image{
+    height: 100%;
+    width: 100%;
+    -webkit-animation: image1 15s linear infinite;
+    -moz-animation: image1 15s linear infinite;
+    animation: image1 15s linear infinite;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+}
+
+@-webkit-keyframes image1{
+    0%{ 
+        background-position: 50% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+    25%{
+        background-position: 75% 0%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    50%{
+        background-position: 100% 0%;
+        border-radius: 39% 61% 63% 37% / 36% 65% 35% 64%;
+    }
+    75%{
+        background-position: 75% 0%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    100%{
+        background-position: 50% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+}
+
+@-moz-keyframes image1{
+    0%{ 
+        background-position: 50% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+    25%{
+        background-position: 75% 0%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    50%{
+        background-position: 100% 0%;
+        border-radius: 39% 61% 63% 37% / 36% 65% 35% 64%;
+    }
+    75%{
+        background-position: 75% 0%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    100%{
+        background-position: 50% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+}
+
+@keyframes image1{
+    0%{ 
+        background-position: 50% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+    25%{
+        background-position: 75% 0%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    50%{
+        background-position: 100% 0%;
+        border-radius: 39% 61% 63% 37% / 36% 65% 35% 64%;
+    }
+    75%{
+        background-position: 75% 0%;
+        border-radius: 61% 39% 35% 65% / 58% 31% 69% 42%;
+    }
+    100%{
+        background-position: 50% 0%;
+        border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
+    }
+}
+
+section:nth-child(1) .image{
+    background: url(image/Image1.jpg);
+    background-size: cover;
+}
+
+section:nth-child(2) .image{
+    background: url(image/Image2.jpg);
+    background-size: cover;
+}
+
+section:nth-child(3) .image{
+    background: url(image/Image3.jpg);
+    background-size: cover;
+}
+
+section:nth-child(4) .image{
+    background: url(image/Image4.jpg);
+    background-size: cover;
+}
+
+section:nth-child(5) .image{
+    background: url(image/Image5.jpg);
+    background-size: cover;
+}
+
+section:nth-child(6) .image{
+    background: url(image/Image6.jpg);
+    background-size: cover;
 }
 
 .box-wrapper{
     position: relative;
     top: 0;
     left: 0;
+    order: 1;
 }
 
 .box{
@@ -667,7 +916,7 @@ section:nth-child(6) .btn-article a:hover{
     position: absolute;
     top: 0;
     left: 0;
-    filter: blur(10px);
+    filter: blur(15px);
     -webkit-animation: shadow1 10s ease infinite;
     -moz-animation: shadow1 10s ease infinite;
     animation: shadow1 10s ease infinite;
