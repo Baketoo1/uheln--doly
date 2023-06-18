@@ -526,6 +526,54 @@ nav ul li:nth-child(3) a:active{
         var(--color6) 90%);
 }
 
+.hamburger-icon{
+    margin: 0 auto;
+    display: none;
+    cursor: pointer;
+    margin: 2rem;
+}
+
+.hamburger-icon div{
+    width: 35px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.open .bar1{
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2{
+    opacity: 0;
+}
+
+.open .bar3{
+    -webkit-transform: rotate(45deg) translate(-6px, -8px);
+    transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.mobile-menu{
+    display: none;
+    position: absolute;
+    padding: 5rem;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: -10;
+}
+
+.open .mobile-menu{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: #111;
+}
+
 /* nav */
 
 
@@ -539,6 +587,9 @@ section{
     padding: 5rem 15rem;
     gap: 1rem;
     filter: drop-shadow(0 0 50px #000);
+    top: 0;
+    left: 0;
+    position: relative;
 }
 
 section h1,
@@ -738,5 +789,66 @@ section ul{
     }
     to{
         transform: translate(0%, 0%);
+    }
+}
+
+@media only screen and (max-width:1024px){
+    section{
+        padding: 5rem;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    nav ul{
+        display: none;
+    }
+    .hamburger-icon {
+        display: block;
+    }
+}
+
+@media only screen and (max-width:768px){
+    section h1{
+        font-size: 2.8rem;
+    }
+}
+
+@media only screen and (max-width:425px){
+    section{
+        padding: 3rem;
+        top: 5rem;
+        left: 0;
+    }
+    section h1{
+        font-size: 1.8rem;
+    }
+    section h2{
+        font-size: 1.5rem;
+    }
+    section p{
+        font-size: 1.3rem;
+    }
+}
+@media only screen and (max-width:375px){
+    section h1{
+        font-size: 1.5rem;
+    }
+    section h2{
+        font-size: 1.3rem;
+    }
+    section p{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width:32px){
+    section h1{
+        font-size: 1.2rem;
+    }
+    section h2{
+        font-size: 1rem;
+    }
+    section p{
+        font-size: 0.8rem;
     }
 }

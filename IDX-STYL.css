@@ -20,6 +20,7 @@
 html{
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
 }
 
 body{
@@ -51,6 +52,7 @@ nav{
 }
 
 .logo{
+    display: block;
     padding: 10px;
     margin-left: 1.5rem;
     transition: all 0.1s ease;
@@ -314,6 +316,56 @@ nav ul li:nth-child(3) a:active{
         var(--color6) 90%);
 }
 
+.hamburger-icon{
+    margin: 0 auto;
+    display: none;
+    cursor: pointer;
+    margin: 2rem;
+}
+
+.hamburger-icon div{
+    width: 35px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.open .bar1{
+    -webkit-transform: rotate(-45deg) translate(-6px, 6px);
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.open .bar2{
+    opacity: 0;
+}
+
+.open .bar3{
+    -webkit-transform: rotate(45deg) translate(-6px, -8px);
+    transform: rotate(45deg) translate(-6px, -8px);
+}
+
+.mobile-menu{
+    display: none;
+    position: absolute;
+    padding: 5rem;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: -10;
+}
+
+.open .mobile-menu{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background: #111;
+}
+
+
+
 /* Nav */
 
 
@@ -333,45 +385,21 @@ main h1{
     color: white;
     font-size: 8rem;
     text-shadow: 0 0 10px #fff;
-    -webkit-animation: title1 2s ease-in-out;
-    -moz-animation: title1 2s ease-in-out;
-    animation: title1 2s ease-in-out;
 }
 
-@-webkit-keyframes title1 {
-    from{
-        transform: translateX(60%);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
-    }
+.title-anim{
+    position: relative;
+    transition: all 2s ease-out;
+    opacity: 0;
+    transition-delay: 0.2s;
 }
-
-@-moz-keyframes title2 {
-    from{
-        transform: translateX(60%);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
-    }
-}
-
-@keyframes title1 {
-    from{
-        transform: translateX(60%);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
-    }
+.title-anim-end{
+    
+    opacity: 1;
 }
 
 .btn-main{
-    -webkit-animation: btn2 2s ease-in-out;
-    -moz-animation: btn2 2s ease-in-out;
-    animation: btn2 2s ease-in-out;
+    transition-delay: 0.8s;
 }
 
 .btn-main a{
@@ -400,36 +428,6 @@ main h1{
     left: 0;
 }
 
-@-webkit-keyframes btn2 {
-    from{
-        transform: translateX(60%);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
-    }
-}
-
-@-moz-keyframes btn2 {
-    from{
-        transform: translateX(60%);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
-    }
-}
-
-@keyframes btn2{
-    from{
-        transform: translateX(60%);
-        opacity: 0;
-    }
-    to{
-        transform: translateX(0);
-    }
-}
-
 /* Main */
 
 
@@ -449,18 +447,17 @@ section{
     scroll-snap-align: center;
     position: relative;
     gap: 4rem;
+    overflow: hidden;
 }
 
 .reveal{
     position: relative;
-    transform: translateY(300px);
+    transition: all 2s ease-out;
     opacity: 0;
-    transition: all 1s ease;
     transition-delay: 0.2s;
 }
 
 .reveal-anim{
-    transform: translateX(0px);
     opacity: 1;
 }
 
@@ -474,11 +471,10 @@ section{
     background-size: 200% 200%;
     width: 40rem;
     height: 40rem;
-    transition: all 0.1s linear;
     border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
-    -webkit-animation: blob-holder1 15s linear infinite;
-    -moz-animation: blob-holder1 15s linear infinite;
-    animation: blob-holder1 15s linear infinite;
+    -webkit-animation: blob-holder1 30s linear infinite;
+    -moz-animation: blob-holder1 30s linear infinite;
+    animation: blob-holder1 30s linear infinite;
     padding: 1rem;
     order: 1;
 }
@@ -497,9 +493,9 @@ section{
     height: 100%;
     transition: all 1s ease-in-out;
     border-radius: 55% 45% 48% 52% / 37% 55% 45% 63%;
-    -webkit-animation: blob-holder1 15s linear infinite;
-    -moz-animation: blob-holder1 15s linear infinite;
-    animation: blob-holder1 15s linear infinite;
+    -webkit-animation: blob-holder1 30s linear infinite;
+    -moz-animation: blob-holder1 30s linear infinite;
+    animation: blob-holder1 30s linear infinite;
     filter: blur(15px);
 }
 
@@ -597,9 +593,9 @@ section:nth-child(6) .blob-holder::before{
 .image{
     height: 100%;
     width: 100%;
-    -webkit-animation: image1 15s linear infinite;
-    -moz-animation: image1 15s linear infinite;
-    animation: image1 15s linear infinite;
+    -webkit-animation: image1 30s linear infinite;
+    -moz-animation: image1 30s linear infinite;
+    animation: image1 30s linear infinite;
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
@@ -990,3 +986,105 @@ section:nth-child(6) .shadow{
 }
 
 /* Article */
+
+/* responsible */
+
+@media only screen and (max-width:1440px){
+    section{
+        gap: 2rem;
+    }
+    .box{
+        max-width: 700px;
+    }
+    section:nth-child(2) h2,
+    section:nth-child(3) h2,
+    section:nth-child(5) h2{
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (max-width:1024px) {
+    .box{
+        top: 0;
+        left: 100px;
+        min-height: 450px;
+        max-width: 700px;
+    }
+    section:nth-child(even) .box{
+        left: -100px;
+    }
+    .shadow{
+        top: 0;
+        left: 100px;
+    }
+    section:nth-child(even) .shadow{
+        top: 0;
+        left: -100px;
+    }
+    .blob-holder{
+        top: 15vh;
+        left: -10rem;
+        position: absolute;
+    }
+    section:nth-child(even) .blob-holder{
+        left: 50%;
+    }
+}
+
+@media only screen and (max-width: 950px){
+    nav ul{
+        display: none;
+    }
+    .hamburger-icon {
+        display: block;
+    }
+}
+
+@media only screen and (max-width:768px){
+    main h1{
+        font-size: 5rem;
+    }
+    .btn-main{
+        transform: scale(0.9);
+    }
+    .box{
+        left: 100px;
+        min-height: 600px;
+        max-width: 550px;
+    }
+}
+@media only screen and (max-width:425PX){
+    main h1{
+        font-size: 3rem;
+    }
+    section{
+        padding: 0.5rem;
+    }
+    section .text h2{
+        font-size: 1.5rem;
+    }
+    .text p{
+        font-size: 1.3rem;
+    }
+    .blob-holder{
+        display: none;
+    }
+    .box{
+        left: 0;
+        min-height: 500px;
+        max-width: auto;
+        padding: 2rem;
+        gap: 2rem;
+    }
+    section:nth-child(even) .box{
+        left: 0px;
+    }
+    .shadow{
+        left: 0px;
+    }
+    section:nth-child(even) .shadow{
+        top: 0;
+        left: 0px;
+    }
+}
+
